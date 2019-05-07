@@ -8,6 +8,7 @@ class C_Event {
 
     public function __construct()
     {
+        session_start();
         $this->event = new Event();
         $this->event->init();
     }
@@ -22,7 +23,7 @@ class C_Event {
         $nominatim_query = "http://nominatim.openstreetmap.org/search?format=json&q=".urlencode($address);
         //Context to fake user agents (fake browser)
         $context = stream_context_create(
-            array(
+            array (
                 "http" => array(
                     "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
                 )
@@ -30,15 +31,17 @@ class C_Event {
         );
         $result = file_get_contents($nominatim_query, false, $context);
         $result_array = json_decode($result, true);
-        $event["longitude"] = $result_array[0]["lon"];
-        $event["latitude"] = $result_array[0]["lat"];
+        if (count($result_array) > 0) {
+            $event["longitude"] = $result_array[0]["lon"];
+            $event["latitude"] = $result_array[0]["lat"];
+        }
         return $event;
     }
 
     /*
      * Parcours tous les events et récupère le nom de l'event et sa localisation (longitude / latitude)
      */
-    public function getEvents() {
+    public function getEventsForMap() {
         $events = $this->event->getEvents();
         $events_coordinates = array();
         while ($row = mysqli_fetch_assoc($events)) {
@@ -46,6 +49,18 @@ class C_Event {
             array_push($events_coordinates, $coordinates);
         }
         return $events_coordinates;
+    }
+
+    public function getEvents() {
+        return $this->event->getEvents();
+    }
+
+    public function joinEvent($event_id) {
+        $this->event->joinEvent($event_id, $_SESSION["login_user"]);
+    }
+
+    public function getUserEvents() {
+        return $this->event->getUserEvents($_SESSION["login_user"]);
     }
 
 

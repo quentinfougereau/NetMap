@@ -15,7 +15,7 @@ class Event {
     }
 
     public function getEvents() {
-        $query = "SELECT Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue, Address.CP, Address.ville, Location.longitude, Location.latitude 
+        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue, Address.CP, Address.ville, Location.longitude, Location.latitude 
                 FROM Event, Place, Address, Location
                 WHERE Place.idLocation = Location.idLocation 
                 AND Place.addressPlace = Address.idAddress 
@@ -86,7 +86,30 @@ class Event {
         mysqli_stmt_execute($stmt);
         $place_id = mysqli_insert_id($this->dbConnection);
         mysqli_stmt_close($stmt);
-
     }
+
+    public function joinEvent($event_id, $user_login) {
+        $query = "INSERT INTO Participer (login, idEvent) VALUES (?, ?)";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 'si',$user_login, $event_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+
+    public function getUserEvents($user_login) {
+        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city
+                FROM Event, Place, Address, Participer, User
+                WHERE Event.idPlace = Place.idPlace
+                AND Place.addressPlace = Address.idAddress
+                AND Event.idEvent = Participer.idEvent
+                AND Participer.login = ?";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 's',$user_login);
+        mysqli_stmt_execute($stmt);
+        $events =  mysqli_stmt_get_result($stmt);
+        mysqli_stmt_close($stmt);
+        return $events;
+    }
+
 
 }
