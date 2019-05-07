@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>netMAP</title>
+    <!-- Include du CSS leaftlet-->
+    <link rel="stylesheet" href="mapage.css"/>
+    <!--<link rel="stylesheet" href="leaflet-search.css"/> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    <!-- Include de l'API leaflet -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+    <!-- Include de la bibliothèque JSON -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <section class=formulaire>
+      <!-- Affichage d'éventuels messages d'erreurs lors de la géolocalisation -->
+      <div id="badPosition"></div>
+      <div id="infoposition"></div>
+      <!-- Formulaire de localisation -->
+      <!-- Bouton et sauvegarde des champs longitude/latitude -->
+      <div id="button">
+        <input type="button" value="Localisez-moi" onClick="askForUserPosition()"/>
+        <input type="hidden" name="lat" id="lat" />
+        <input type="hidden" name="lng" id="lng" />
+      </div>
+      <!-- Formulaire d'adresse et sauvegarde du champs-->
+      <div id=textbox>
+        <form method="post">
+          <input type="text" name="addrArea" id="addrArea"/>
+          <input type="button" value="Send" onClick="getUserAddr()"/>
+          <input type="hidden" name="addr", id="addr"/>
+        </form>
+      </div>
+    </section>
+    <!-- Affichage de la carte -->
+    <div id='mapid'></div>
+    <!--Choix des différents loisirs -->
+    <section class=checkbox>
+      <div>
+        <input type="checkbox" id="restaurant" name="restaurant" onClick="isChecked(this)">
+        <label for="restaurant">Restaurant</label>
+    </div>
+      <div>
+        <input type="checkbox" id="museum" name="museum" onClick="isChecked(this)">
+        <label for="musées">Musées</label>
+      </div>
+      <div id="buttonSearchPOI">
+        <input type="button" value="SEARCH" onClick="sendPOI()"/>
+      </div>
+      <div id="interestSelected"></div>
+    </section>
+    <!-- Insertion des scripts -->
+    <script src="postButton.js"></script>
+    <script src="postFormulaire.js"></script>
+    <script src="visitorMapView.js"></script>
+    <script src="checkbox.js"></script>
+  </body>
+</html>
