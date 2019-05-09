@@ -15,7 +15,7 @@ class Event {
     }
 
     public function getEvents() {
-        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue, Address.CP, Address.ville, Location.longitude, Location.latitude 
+        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city, Location.longitude, Location.latitude 
                 FROM Event, Place, Address, Location
                 WHERE Place.idLocation = Location.idLocation 
                 AND Place.addressPlace = Address.idAddress 

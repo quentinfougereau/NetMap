@@ -45,7 +45,8 @@ class C_Event {
         $events = $this->event->getEvents();
         $events_coordinates = array();
         while ($row = mysqli_fetch_assoc($events)) {
-            $coordinates = array("name" => $row["libelle"],"longitude" => $row["longitude"], "latitude" => $row["latitude"]);
+            $coordinates = array("name" => $row["libelle"],"longitude" => $row["longitude"], "latitude" => $row["latitude"],
+                            "place" => $row["place"], "street" => $row["street"], "postcode" => $row["postcode"], "city" => $row["city"]);
             array_push($events_coordinates, $coordinates);
         }
         return $events_coordinates;

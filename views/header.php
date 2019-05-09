@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Acceuil - NetMap</title>
+	<title>NetMap</title>
 	
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,8 +16,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-	<div style="background-color:#ededed;height:50px" class="col-md-12">
-		<p style="padding-top:10px;padding-left:20px;font-weight:bold">Projet NetMap</p>
-		<a href="../controllers/c_logout.php">Se dÃ©connecter</a>
-	</div>
-	<br/>
+<div class="col-md-12 header">
+    <p>Projet NetMap</p>
+</div>

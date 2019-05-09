@@ -1,3 +1,9 @@
+.header {
+  background-color:#ededed;
+  height:50px;
+  font-weight: bold;
+  padding-top: 10px;
+}
 
 .listul {
   list-style-type: none;

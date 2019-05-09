@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>NETMAP</title>
+    <!-- Include du CSS de la page -->
+    <link rel="stylesheet" href="mapage.css"/>
+    <!-- Include du CSS leaftlet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    <!-- Include de l'API leaflet -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+    <!-- Include de la bibliothèque JSON -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <!--Debut de la section du formulaire !-->
+    <section class="formulaire">
+      <!-- Div concernant la localisation de l'utilisateur -->
+      <div class="postbox">
+          <div id=button>
+              <!-- Bouton de géolocalisation -->
+            <div id=locationButton>
+            <input type="image" src="img/location-pin.png" id="location-pin" onClick="askForUserPosition()"/>
+            <span id="location-pinSpan">Plus rapide que de rentrer ton adresse</span>
+          </div>
+          <!-- Bouton de localisation manuelle -->
+          <div id="selfLocationButton">
+            <input type="image" src="img/position.png" id="selfLocation-pin" onClick="addUserPositionOnClick(mymap,layerPositionGroup)"/>
+            <span id="selfLocation-pinSpan">Localise-toi manuellement !</span>
+          </div>
+        </div>
+        <!-- Formulaire d'adresse et sauvegarde du champs-->
+        <form method="post" id="inputbox">
+          <div>
+            <label for="addrArea" class="hiden"><span class="hidden">Adresse :</span></label>
+            <input type="text" name="addrArea" id="addrArea" placeholder="Adresse" />
+          </div>
+          <div>
+            <label for="postalCodeArea" class="hiden"><span class="hidden">Code Postale :</span></label>
+            <input type="text" name="PostalCode" id="postalCodeArea" placeholder="Code Postale" required/>
+          </div>
+          <div class="button">
+            <input type="button" value="Confirmer mon adresse" onClick="getUserAddr()"></input>
+          </div>
+        </form>
+          <!-- Affichage d'éventuels messages d'erreurs lors de la géolocalisation -->
+          <div id="infoposition" class="error"></div>
+      </div>
+      </section>
+      <!-- Checkbox des points d'intérêts disponibles à la recherche -->
+      <section class=checkbox>
+        <div>
+          <input type="checkbox" id="restaurant" name="restaurant" onClick="isChecked(this)" unchecked>
+          <label for="restaurant">Restaurant</label>
+      </div>
+        <div>
+          <input type="checkbox" id="museum" name="museum" onClick="isChecked(this)" unchecked>
+          <label for="musées">Musées</label>
+        </div>
+        <div>
+          <input type="checkbox" id="bench" name="bench" onClick="isChecked(this)" unchecked>
+          <label for="bench">Bancs</label>
+        </div>
+        <div id="buttonSearchPOI">
+          <input type="button" value="Chercher" onClick="sendPOI()"/>
+        </div>
+        <div id="rangeRadius">
+          <input class="range" type="range" value="1000" min="500" max="2000" step="100">
+          <output></output>
+        </div>
+        <div id="interestSelected"></div>
+      </section>
+    <!--Fin de la section du formulaire !-->
+    <!-- Affichage de la carte -->
+    <div id="mapid"></div>
+    <!-- Insertion des scripts -->
+    <script src="geolocation-button.js"></script>
+    <script src="selflocalisation-button.js"></script>
+    <script src="form-confirm-button.js"></script>
+    <script src="checkbox.js"></script>
+    <script src="map.js"></script>
+    <script src="map-custom-icons.js"></script>
+  </body>
+</html>

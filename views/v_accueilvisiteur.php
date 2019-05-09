@@ -7,8 +7,10 @@ include('../views/header.php');
 </div>
 
 <div class="col-md-3">
-    <a href="../route/route_event.php?new_event=1">Ajouter un événement</a>
+    <a href="../controllers/c_logout.php">Se déconnecter</a>
 </div>
+<br/>
+
 
 <?php
 include('../views/footer.php'); 
