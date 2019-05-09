@@ -1,10 +1,7 @@
 <?php
-
+include('../views/header.php');
 ?>
 
-<html>
-<head></head>
-<body>
     <form method="POST" action="../route/route_event.php">
         <div>
             <label for="event_name">Nom de l'événement :</label>
@@ -35,5 +32,7 @@
             <input type="submit" value="Valider">
         </div>
     </form>
-</body>
-</html>
+
+<div class="col-md-12">
+    <a href="../views/v_accueil.php">Retour accueil</a>
+</div>
