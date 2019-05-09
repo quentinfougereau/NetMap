@@ -23,9 +23,9 @@ if (isset($_GET["fetch_all_eventsForMap"])) {
     echo json_encode($c_event->getEventsForMap());
 }
 
-if (isset($_GET["fetch_all_events"])) {
-    $events = $c_event->getEvents();
-    include "../views/v_listEvents.php";
+if (isset($_GET["fetch_events_not_joined"])) {
+    $events = $c_event->getEventsNotJoined();
+    include "../views/v_listEventsNotJoined.php";
 }
 
 if (isset($_GET["join_event"])) {

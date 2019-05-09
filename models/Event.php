@@ -24,6 +24,21 @@ class Event {
         return $result;
     }
 
+    public function getEventsNotJoined($user_login) {
+        $query = "SELECT DISTINCT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city, Location.longitude, Location.latitude 
+                FROM Event, Place, Address, Location, Participer
+                WHERE Place.idLocation = Location.idLocation 
+                AND Place.addressPlace = Address.idAddress 
+                AND Event.idPlace = Place.idPlace
+                AND Event.idEvent NOT IN (SELECT idEvent FROM Participer WHERE Participer.login = ?)";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 's',$user_login);
+        mysqli_stmt_execute($stmt);
+        $events =  mysqli_stmt_get_result($stmt);
+        mysqli_stmt_close($stmt);
+        return $events;
+    }
+
     public function addEvent($event) {
         $event_name = NULL;
         if (isset($event["event_name"])) {
