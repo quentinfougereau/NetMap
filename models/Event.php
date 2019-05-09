@@ -64,6 +64,10 @@ class Event {
         if (isset($event["city"])) {
             $city = $event["city"];
         }
+        $idNode = NULL;
+        if (isset($event["idNode"])) {
+            $idNode = $event["idNode"];
+        }
         $longitude = NULL;
         if (isset($event["longitude"])) {
             $longitude = $event["longitude"];
@@ -74,9 +78,9 @@ class Event {
         }
 
         $location_id = null;
-        $query = "INSERT INTO Location (longitude, latitude) VALUES (?, ?)";
+        $query = "INSERT INTO Location (idNode, longitude, latitude) VALUES (?, ?)";
         $stmt = mysqli_prepare($this->dbConnection, $query);
-        mysqli_stmt_bind_param($stmt, 'dd',$longitude, $latitude);
+        mysqli_stmt_bind_param($stmt, 'sdd',$idNode,$longitude, $latitude);
         mysqli_stmt_execute($stmt);
         $location_id = mysqli_insert_id($this->dbConnection);
         mysqli_stmt_close($stmt);

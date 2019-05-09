@@ -96,5 +96,28 @@ class Model {
 		
 		return $infoUser;
 	}
+	
+	public function manageUser($id, $oper){
+		$this->bddConnect();
+		if($oper == 'admin'){
+			$sql = "UPDATE User SET isAdmin='2' WHERE login='$id'";
+		}else{
+			if($oper == 'modo'){
+				$sql = "UPDATE User SET isAdmin='1' WHERE login='$id'";
+			}else{
+				if($oper == 'util'){
+					$sql = "UPDATE User SET isAdmin='0' WHERE login='$id'";
+				}else{
+					$reslt = 'Controller error';
+				}	
+			}
+		}
+		if ($this->dbConnection->query($sql) === TRUE) {
+			$reslt = '';
+		}else{
+			$reslt = 'SQL error';
+		}
+		return $reslt;
+	}
 }
 ?>

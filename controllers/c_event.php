@@ -32,6 +32,7 @@ class C_Event {
         $result = file_get_contents($nominatim_query, false, $context);
         $result_array = json_decode($result, true);
         if (count($result_array) > 0) {
+            $event["idNode"] = $result_array[0]["osm_id"];
             $event["longitude"] = $result_array[0]["lon"];
             $event["latitude"] = $result_array[0]["lat"];
         }

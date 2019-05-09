@@ -12,9 +12,27 @@ else
 switch($action)
 {
 	case 'manageUser':
-		$id = $_REQUEST['user'];
-		$oper = $_REQUEST['oper'];
-		$c_backoffice->manageUser($id, $oper);
+		$userAction = '';
+		if(!empty($_POST['admin_list'])){
+			foreach($_POST['admin_list'] as $id) {
+				$userAction = 'admin';
+				$c_backoffice->manageUser($id, $userAction);
+			}
+		}
+		if(!empty($_POST['modo_list'])){
+			foreach($_POST['modo_list'] as $id) {
+				$userAction = 'modo';
+				$c_backoffice->manageUser($id, $userAction);
+			}
+		}
+		header('Location: ../views/v_backofficeUtil.php');
+		break;
+		
+	case 'deleteUserRights':
+		$user = $_REQUEST['user'];
+		$userAction = 'util';
+		$c_backoffice->manageUser($user, $userAction);
+		header('Location: ../views/v_backofficeUtil.php');
 		break;
 		
 	case 'login':

@@ -12,7 +12,8 @@ class C_backoffice extends Controller {
 	
 	public function manageUser($id, $oper)
 	{
-		return;
+		$data = $this->model->manageUser($id, $oper);
+		return $data;
 	}
 	
 	public function connectBDD(){

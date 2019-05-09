@@ -11,9 +11,9 @@ include('../views/header.php');
 	<div style="background-color:#151a21" class="row">
 		<div class="col-1">
 			<ul class="listul">
-				<li class="listil"><a class="listla" href="#home">Paramètres</a></li>
-				<li class="listil"><a class="listla" href="../views/v_backofficeUtil.php">Utilisateurs</a></li>
-				<li class="listil"><a class="listla" href="../views/v_backofficeLieu.php">Lieux</a></li>
-				<li class="listil"><a class="listla" href="#about">Evénements</a></li>
+				<li class="listil"><a class="listla" href="../views/v_backofficeParam.php">Settings</a></li>
+				<li class="listil"><a class="listla" href="../views/v_backofficeUtil.php">Users</a></li>
+				<li class="listil"><a class="listla" href="../views/v_backofficeLieu.php">Places</a></li>
+				<li class="listil"><a class="listla" href="../views/v_backofficeEvents.php">Events</a></li>
 			</ul>
 		</div>

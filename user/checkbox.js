@@ -49,8 +49,8 @@ function sendPOI(){
   // Envoie des POI au serveur PHP via une requête AJAX.
   $.ajax({
     type: "POST",
-    url: "http://localhost/NetMap/user/userIndex.php",
-    data: {data : interestChecked,userPosition,radius},
+    url: "http://localhost/NetMap/route/route_place.php",
+    data: {data : interestChecked,userPosition,radius,action:"addPlaces"},
     success: function(response) {
       //On ajoute les POI sur la carte
       if(response != null && response.length != 0){

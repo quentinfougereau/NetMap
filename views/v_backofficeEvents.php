@@ -4,7 +4,7 @@ include('../views/v_backoffice.php');
 
 <div style="background-color:white" class="col-11">
 	<h1>BACKOFFICE ADMIN</h1>
-	<h2 style='color:grey'>Places list</h2>
+	<h2 style='color:grey'>Events list</h2>
 	<form action="../controllers/routes.php?action=manageUser" method="POST">
 	<button type="submit" class="btn btn-primary">Submit</button>
 	<table class="table">
@@ -12,30 +12,26 @@ include('../views/v_backoffice.php');
 			<tr>
 				<th scope="col">#</th>
 				<th scope="col">Libelle</th>
-				<th scope="col">Rating</th>
-				<th scope="col">Description</th>
-				<th scope="col">Longitude</th>
-				<th scope="col">Latitude</th>
+				<th scope="col">Date</th>
+				<th scope="col">Place</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
-				$query = "SELECT * FROM Place ORDER BY idPlace DESC";
+				$query = "SELECT * FROM Event ORDER BY idEvent DESC";
 				$result = mysqli_query($con, $query);
 				$i=1;
 
 				while($resrow = mysqli_fetch_assoc($result)) {
-					$queryLoc = 'SELECT Location.longitude, Location.latitude FROM Location, Place WHERE Location.idLocation = '.$resrow['idLocation'].' LIMIT 1';
+					$queryLoc = 'SELECT Place.libelle FROM Event, Place WHERE Place.idPlace = '.$resrow['idPlace'].' LIMIT 1';
 					$resultLoc = mysqli_query($con, $queryLoc);
 					echo "
 					<tr>
 						<th scope='row'>".$i."</th>
 						<td scope='row'>".$resrow['libelle']."</td>
-						<td scope='row'>".$resrow['rating']."</td>
-						<td scope='row'>".$resrow['description']."</td>";
+						<td scope='row'>".$resrow['dateEvent']."</td>";
 					while($locrow = mysqli_fetch_assoc($resultLoc)){
-						echo "<td scope='row'>".$locrow['longitude']."</td>";
-						echo "<td scope='row'>".$locrow['latitude']."</td>";
+						echo "<td scope='row'>".$locrow['libelle']."</td>";
 					}
 					echo "</tr>";	
 					$i+=1;
