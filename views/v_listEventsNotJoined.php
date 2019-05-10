@@ -1,5 +1,5 @@
 <?php
-include('../views/header.php');
+include_once('../views/header.php');
 
 ?>
 <ul>
@@ -19,3 +19,7 @@ include('../views/header.php');
 <div class="col-md-12">
     <a href="../views/v_accueil.php">Retour accueil</a>
 </div>
+
+<?php
+include_once '../views/footer.php';
+?>

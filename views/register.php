@@ -1,5 +1,5 @@
 <?php 
-include('../views/header.php');
+include_once('../views/header.php');
 ?>
 	
 	<div class="container">
@@ -53,5 +53,5 @@ include('../views/header.php');
 		<a href="../views/login.php">J'ai déjà un compte</a>
 	</div>
 <?php
-include('../views/footer.php'); 
+include_once('../views/footer.php');
 ?>

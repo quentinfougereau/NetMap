@@ -69,5 +69,8 @@ class C_Event {
         return $this->event->getEventsNotJoined($_SESSION["login_user"]);
     }
 
+    public function getEvent($event_id) {
+        return $this->event->getEvent($event_id);
+    }
 
 }

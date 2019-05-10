@@ -1,8 +1,10 @@
 <?php
 
 include '../controllers/c_event.php';
+include '../controllers/c_comment.php';
 
 $c_event = new C_Event();
+$c_comment = new C_Comment();
 
 /* Si l'utilisateur n'est pas connecté, il reste sur le page d'accueil */
 /*
@@ -40,3 +42,9 @@ if (isset($_GET["list_user_events"])) {
     include "../views/v_listUserEvents.php";
 }
 
+if (isset($_GET["get_event"]) && isset($_GET["id_event"])) {
+    $idEvent = $_GET["id_event"];
+    $event = $c_event->getEvent($idEvent);
+    $comments = $c_comment->getAllCommentsOfEvent($idEvent);
+    include "../views/v_event.php";
+}

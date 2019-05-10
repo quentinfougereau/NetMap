@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../controllers/c_login.php");
+include_once("../controllers/c_login.php");
 $controller = new C_login();
 $adresse = '';
 $adresse = $_SESSION['login_user'];
@@ -37,5 +37,5 @@ include('../views/header.php');
 </div>
 
 <?php
-include('../views/footer.php'); 
+include_once('../views/footer.php');
 ?>

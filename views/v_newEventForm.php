@@ -1,39 +1,40 @@
 <?php
-
+include('../views/header.php');
 ?>
 
-<html>
-<head></head>
-<body>
+<div class="col-md-12">
     <form method="POST" action="../route/route_event.php">
-        <div>
+        <div class="form-group">
             <label for="event_name">Nom de l'événement :</label>
-            <input type="text" name="event_name">
+            <input class="form-control" type="text" name="event_name">
         </div>
-        <div>
+        <div class="form-group">
             <label for="event_date">Date de l'événement :</label>
-            <input type="date" name="event_date">
+            <input class="form-control" type="date" name="event_date">
         </div>
-        <div>
+        <div class="form-group">
             <label for="place_name">Nom du lieu :</label>
-            <input type="text" name="place_name">
+            <input class="form-control" type="text" name="place_name">
         </div>
-        <div>
+        <div class="form-group">
             <label for="street">Rue :</label>
-            <input type="text" name="street">
+            <input class="form-control" type="text" name="street">
         </div>
-        <div>
+        <div class="form-group">
             <label for="postcode">Code postal :</label>
-            <input type="text" name="postcode">
+            <input class="form-control" type="text" name="postcode">
         </div>
-        <div>
+        <div class="form-group">
             <label for="city">Ville :</label>
-            <input type="text" name="city">
+            <input class="form-control" type="text" name="city">
         </div>
-        <div>
+        <div class="form-group">
             <input type="hidden" name="add_event" value="1">
-            <input type="submit" value="Valider">
+            <input class="btn btn-primary" type="submit" value="Valider">
         </div>
     </form>
-</body>
-</html>
+</div>
+
+<div class="col-md-12">
+    <a href="../views/v_accueil.php">Retour accueil</a>
+</div>

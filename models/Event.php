@@ -1,5 +1,5 @@
 <?php
-require("../utils/DatabaseManager.php");
+require_once("../utils/DatabaseManager.php");
 
 class Event {
 
@@ -117,7 +117,7 @@ class Event {
 
     public function getUserEvents($user_login) {
         $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city
-                FROM Event, Place, Address, Participer, User
+                FROM Event, Place, Address, Participer
                 WHERE Event.idPlace = Place.idPlace
                 AND Place.addressPlace = Address.idAddress
                 AND Event.idEvent = Participer.idEvent
@@ -128,6 +128,21 @@ class Event {
         $events =  mysqli_stmt_get_result($stmt);
         mysqli_stmt_close($stmt);
         return $events;
+    }
+
+    public function getEvent($event_id) {
+        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city
+                FROM Event, Place, Address
+                WHERE Event.idPlace = Place.idPlace
+                AND Place.addressPlace = Address.idAddress
+                AND Event.idEvent = ?";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 'i',$event_id);
+        mysqli_stmt_execute($stmt);
+        $result =  mysqli_stmt_get_result($stmt);
+        $event = mysqli_fetch_assoc($result);
+        mysqli_stmt_close($stmt);
+        return $event;
     }
 
 
