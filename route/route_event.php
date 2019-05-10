@@ -5,10 +5,12 @@ include '../controllers/c_event.php';
 $c_event = new C_Event();
 
 /* Si l'utilisateur n'est pas connecté, il reste sur le page d'accueil */
+/*
 if (!isset($_SESSION["login_user"])) {
     include "../views/v_accueilvisiteur.php";
     return;
 }
+*/
 
 if (isset($_GET["new_event"])) {
     include "../views/v_newEventForm.php";
