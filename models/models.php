@@ -100,13 +100,13 @@ class Model {
 	public function manageUser($id, $oper){
 		$this->bddConnect();
 		if($oper == 'admin'){
-			$sql = "UPDATE user SET isAdmin='2' WHERE login='$id'";
+			$sql = "UPDATE User SET isAdmin='2' WHERE login='$id'";
 		}else{
 			if($oper == 'modo'){
-				$sql = "UPDATE user SET isAdmin='1' WHERE login='$id'";
+				$sql = "UPDATE User SET isAdmin='1' WHERE login='$id'";
 			}else{
 				if($oper == 'util'){
-					$sql = "UPDATE user SET isAdmin='0' WHERE login='$id'";
+					$sql = "UPDATE User SET isAdmin='0' WHERE login='$id'";
 				}else{
 					$reslt = 'Controller error';
 				}	
@@ -123,7 +123,7 @@ class Model {
 	public function manageComment($comment){
 		$this->bddConnect();
 
-		$sql = "UPDATE comment SET status='approved' WHERE idComment='$comment'";
+		$sql = "UPDATE Comment SET status='approved' WHERE idComment='$comment'";
 
 		if ($this->dbConnection->query($sql) === TRUE) {
 			$reslt = '';
@@ -137,10 +137,10 @@ class Model {
 		$this->bddConnect();
 		$sql = '';
 		if($action == 'add'){
-			$sql = "UPDATE user SET warning = warning + 1 WHERE login='$user'";
+			$sql = "UPDATE User SET warning = warning + 1 WHERE login='$user'";
 		}	
 		if($action == 'sub'){
-			$sql = "UPDATE user SET warning = warning - 1 WHERE login='$user'";
+			$sql = "UPDATE User SET warning = warning - 1 WHERE login='$user'";
 		}
 		
 		if ($this->dbConnection->query($sql) === TRUE) {

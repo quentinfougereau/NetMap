@@ -8,7 +8,7 @@ $adresse = $_SESSION['login_user'];
 $infoUser = $controller->getUserData($adresse);
 include('../views/header.php'); 
 ?>
-	<div style="background-color:#151a21" class="row h-100">
+	<div style="background-color:#151a21" class="row">
 		<div class="col-1">
 			<div style="padding-top:10px;padding-left:10px;" class="pcoded-navigation-label"><p style="color:#fdd4b1;font-weight:bold">APPLICATION</p></div>
 			<ul class="listul">

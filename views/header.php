@@ -18,6 +18,7 @@
     <script type="text/javascript" src="../javascript/jquery-timepicker/jquery.timepicker.min.js"></script>
 </head>
 <body>
-<div class="col-md-12 header">
-    <p>Projet NetMap</p>
+<div class="col-md-12 header row">
+    <div class="col"><p>Projet NetMap</p></div>
+    <div class="col"><p class="text-right"><a href="../controllers/c_logout.php">Se déconnecter</a></p></div>
 </div>

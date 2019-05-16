@@ -66,10 +66,10 @@ include('../views/v_backoffice.php');
 							</th>
 							<th scope='row'>
 								<a href='../controllers/routes.php?action=issueWarning&waction=add&user=" . $resrow['login'] . "'>
-										<i class='fas fa-exclamation-triangle'></i>
+										<i class='fa fa-exclamation-triangle'></i>
 								</a>
 								<a href='../controllers/routes.php?action=issueWarning&waction=sub&user=" . $resrow['login'] . "'>
-										<i class='fas fa-undo-alt'></i>
+										<i class='fa fa-undo-alt'></i>
 								</a>
 							</th>
 						</tr>";
@@ -92,10 +92,10 @@ include('../views/v_backoffice.php');
 							</td>
 							<td scope='row'>
 								<a href='../controllers/routes.php?action=issueWarning&waction=add&user=" . $resrow['login'] . "'>
-										<i class='fas fa-exclamation-triangle'></i>
+										<i class='fa fa-exclamation-triangle'></i>
 								</a>
 								<a href='../controllers/routes.php?action=issueWarning&waction=sub&user=" . $resrow['login'] . "'>
-										<i class='fas fa-undo-alt'></i>
+										<i class='fa fa-undo-alt'></i>
 								</a>
 							</td>
 						</tr>";	

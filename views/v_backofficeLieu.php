@@ -20,12 +20,12 @@ include('../views/v_backoffice.php');
 		</thead>
 		<tbody>
 			<?php
-				$query = "SELECT * FROM place ORDER BY idPlace DESC";
+				$query = "SELECT * FROM Place ORDER BY idPlace DESC";
 				$result = mysqli_query($con, $query);
 				$i=1;
 
 				while($resrow = mysqli_fetch_assoc($result)) {
-					$queryLoc = 'SELECT location.longitude, location.latitude FROM location, place WHERE location.idLocation = '.$resrow['idLocation'].' LIMIT 1';
+					$queryLoc = 'SELECT Location.longitude, Location.latitude FROM Location, Place WHERE Location.idLocation = '.$resrow['idLocation'].' LIMIT 1';
 					$resultLoc = mysqli_query($con, $queryLoc);
 					echo "
 					<tr>
@@ -33,7 +33,7 @@ include('../views/v_backoffice.php');
 						<td scope='row'>".$resrow['libelle']."</td>
 						<td scope='row'>".$resrow['rating']."</td>
 						<td scope='row'>".$resrow['description']."</td>";
-					while($locrow = mysqli_fetch_assoc($resultLoc)){
+					while($locrow = mysqli_fetch_assoc($resultLoc)) {
 						echo "<td scope='row'>".$locrow['longitude']."</td>";
 						echo "<td scope='row'>".$locrow['latitude']."</td>";
 					}

@@ -3,46 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2aaed385-321a-4c01-830b-94f47756092c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_backoffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_backoffice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_event.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_place.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_place.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/checkbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/checkbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/mapage.css" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/mapage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/mapage.html" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/mapage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Place.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Place.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/route_comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/route/route_comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/route_event.php" beforeDir="false" afterPath="$PROJECT_DIR$/route/route_event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/route_place.php" beforeDir="false" afterPath="$PROJECT_DIR$/route/route_place.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/checkbox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/form-confirm-button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/geolocation-button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/img/food.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/img/location-pin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/img/museum.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/img/position.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/map-custom-icons.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/mapage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/mapage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/old/user.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/selflocalisation-button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/userIndex.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/v_backoffice.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_backoffice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/v_backofficeComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_backofficeComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/v_backofficeDashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_backofficeDashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/v_backofficeEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_backofficeEvents.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/v_backofficeLieu.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_backofficeLieu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/v_backofficeUtil.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_backofficeUtil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/v_event.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/v_listEventsNotJoined.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_listEventsNotJoined.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/v_newEventForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/v_newEventForm.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,56 +20,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="65" lean-forward="true" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/v_event.php">
+        <entry file="file://$PROJECT_DIR$/views/v_backofficeDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+            <state relative-caret-position="570">
+              <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/route/route_event.php">
+        <entry file="file://$PROJECT_DIR$/views/v_backofficeUtil.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
+            <state relative-caret-position="269">
+              <caret line="92" column="44" lean-forward="true" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Event.php">
+        <entry file="file://$PROJECT_DIR$/controllers/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+            <state relative-caret-position="251">
+              <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/c_event.php">
+        <entry file="file://$PROJECT_DIR$/controllers/c_backoffice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="67" column="42" lean-forward="true" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+            <state relative-caret-position="315">
+              <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/route/route_comment.php">
+        <entry file="file://$PROJECT_DIR$/views/v_backofficeComment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
+            <state relative-caret-position="101">
+              <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/c_comment.php">
+        <entry file="file://$PROJECT_DIR$/views/v_backofficeEvents.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+            <state relative-caret-position="405">
+              <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/v_backofficeLieu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="106" selection-start-line="27" selection-start-column="106" selection-end-line="27" selection-end-column="106" />
             </state>
           </provider>
         </entry>
@@ -118,6 +110,8 @@
       <find>places</find>
       <find>hiddenPostCode</find>
       <find>postcode</find>
+      <find>font</find>
+      <find>warning</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,8 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/place/model.php" />
-        <option value="$PROJECT_DIR$/place/DatabaseManager.php" />
         <option value="$PROJECT_DIR$/place/viewPlace.php" />
         <option value="$PROJECT_DIR$/place/placeView.php" />
         <option value="$PROJECT_DIR$/place/PlaceView.php" />
@@ -143,7 +135,6 @@
         <option value="$PROJECT_DIR$/event/EventModel.php" />
         <option value="$PROJECT_DIR$/controllers/c_login.php" />
         <option value="$PROJECT_DIR$/views/v_backoffice.php" />
-        <option value="$PROJECT_DIR$/views/v_backofficeUtil.php" />
         <option value="$PROJECT_DIR$/views/v_addEvent.php" />
         <option value="$PROJECT_DIR$/scripts/removeEvents.php" />
         <option value="$PROJECT_DIR$/views/v_listEvents.php" />
@@ -155,9 +146,6 @@
         <option value="$PROJECT_DIR$/user/mapage.html" />
         <option value="$PROJECT_DIR$/user/map.js" />
         <option value="$PROJECT_DIR$/user/checkbox.js" />
-        <option value="$PROJECT_DIR$/models/models.php" />
-        <option value="$PROJECT_DIR$/views/v_backofficeLieu.php" />
-        <option value="$PROJECT_DIR$/views/v_backofficeEvents.php" />
         <option value="$PROJECT_DIR$/models/Comment.php" />
         <option value="$PROJECT_DIR$/views/v_listUserEvents.php" />
         <option value="$PROJECT_DIR$/views/v_accueil.php" />
@@ -168,7 +156,6 @@
         <option value="$PROJECT_DIR$/models/Place.php" />
         <option value="$PROJECT_DIR$/controllers/c_place.php" />
         <option value="$PROJECT_DIR$/views/footer.php" />
-        <option value="$PROJECT_DIR$/views/header.php" />
         <option value="$PROJECT_DIR$/views/v_newEventForm.php" />
         <option value="$PROJECT_DIR$/views/v_listEventsNotJoined.php" />
         <option value="$PROJECT_DIR$/controllers/c_event.php" />
@@ -177,10 +164,17 @@
         <option value="$PROJECT_DIR$/route/route_event.php" />
         <option value="$PROJECT_DIR$/controllers/c_comment.php" />
         <option value="$PROJECT_DIR$/views/v_event.php" />
+        <option value="$PROJECT_DIR$/views/header.php" />
+        <option value="$PROJECT_DIR$/views/v_backofficeEvents.php" />
+        <option value="$PROJECT_DIR$/views/v_backofficeUtil.php" />
+        <option value="$PROJECT_DIR$/models/models.php" />
+        <option value="$PROJECT_DIR$/views/v_backofficeLieu.php" />
+        <option value="$PROJECT_DIR$/views/v_backofficeComment.php" />
+        <option value="$PROJECT_DIR$/views/v_backofficeDashboard.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="100" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -207,6 +201,11 @@
               <item name="NetMap" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="NetMap" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="$PROJECT_DIR$" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="NetMap" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -285,17 +284,18 @@
       <workItem from="1557832471075" duration="10105000" />
       <workItem from="1557909489907" duration="1472000" />
       <workItem from="1557920817458" duration="11099000" />
+      <workItem from="1557995102173" duration="2198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133267000" />
+    <option name="totallyTimeSpent" value="135465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1602" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49867022" visible="true" weight="0.27027026" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49867022" visible="true" weight="0.27413127" />
       <window_info id="Structure" order="1" sideWeight="0.5013298" side_tool="true" weight="0.22393823" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -320,17 +320,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/user/mapage.css" />
-    <entry file="file://$PROJECT_DIR$/controllers/c_logout.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/v_accueilvisiteur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -350,48 +339,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/c_backoffice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/models.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="111" column="20" lean-forward="true" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/v_backofficeLieu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/userIndex.php" />
-    <entry file="file://$PROJECT_DIR$/views/v_backofficeEvents.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/events.js" />
     <entry file="file://$PROJECT_DIR$/user/mapage.html" />
     <entry file="file://$PROJECT_DIR$/models/Comment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -476,20 +430,6 @@
     <entry file="file://$PROJECT_DIR$/javascript/jquery-3.4.1.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="202" selection-start-line="1" selection-start-column="202" selection-end-line="1" selection-end-column="202" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="107" selection-start-line="17" selection-start-column="107" selection-end-line="17" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/v_accueil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -521,19 +461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="54" column="17" lean-forward="true" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -545,13 +472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="77" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -569,9 +489,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/c_event.php">
+    <entry file="file://$PROJECT_DIR$/views/v_event.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/c_event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
           <caret line="67" column="42" lean-forward="true" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
         </state>
       </provider>
@@ -583,6 +510,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/c_comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/route/route_event.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -590,17 +538,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/c_comment.php">
+    <entry file="file://$PROJECT_DIR$/views/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+        <state relative-caret-position="825">
+          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/v_event.php">
+    <entry file="file://$PROJECT_DIR$/views/v_backofficeEvents.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        <state relative-caret-position="405">
+          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="65" lean-forward="true" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/models.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="108" column="40" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/c_backoffice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/v_backofficeUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="92" column="44" lean-forward="true" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/v_backofficeLieu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="106" selection-start-line="27" selection-start-column="106" selection-end-line="27" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/v_backofficeComment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/v_backofficeDashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
         </state>
       </provider>
     </entry>

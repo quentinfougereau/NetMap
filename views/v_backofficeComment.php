@@ -26,7 +26,7 @@ include('../views/v_backoffice.php');
 				$i=1;
 				$approved = '';
 				while($resrow = mysqli_fetch_assoc($result)) {
-					$queryLoc = 'SELECT event.libelle FROM event, comment WHERE event.idEvent = '.$resrow['idEvent'].' LIMIT 1';
+					$queryLoc = 'SELECT Event.libelle FROM Event, Comment WHERE Event.idEvent = '.$resrow['idEvent'].' LIMIT 1';
 					$resultLoc = mysqli_query($con, $queryLoc);
 					echo "
 					<tr>
