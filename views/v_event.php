@@ -12,9 +12,28 @@ include_once('../views/header.php');
 </div>
 
 <div class="col-md-12">
-    <a href="../route/route_event.php?list_user_events=1">Retour aux événements</a>
+    <?php
+    if (!$hasJoined) {
+        $html = '<a href="../route/route_event.php?fetch_events_not_joined=1">Retour aux événements</a>';
+        echo $html;
+    } else {
+        $html = '<a href="../route/route_event.php?list_user_events=1">Retour aux événements</a>';
+        echo $html;
+    }
+    ?>
+
 </div>
 
+<?php if (!$hasJoined) { ?>
+<div class="col-md-12">
+    <p>
+        <?php
+        $html = '<a class="btn btn-danger" href="../route/route_event.php?join_event=1&id_event=' . $event["idEvent"] . '" role="button">S\'inscrire</a>';
+        echo $html;
+        ?>
+    </p>
+</div>
+<?php } else { ?>
 <div class="col-md-12">
     <h3>Informations complémentaires et commentaires.</h3>
 
@@ -25,14 +44,13 @@ include_once('../views/header.php');
         </div>
         <div class="form-group">
             <?php
-                $html = '<input type="hidden" name="id_event" value="' . $event["idEvent"] . '">';
-                echo $html;
+            $html = '<input type="hidden" name="id_event" value="' . $event["idEvent"] . '">';
+            echo $html;
             ?>
             <input class="btn btn-primary" type="submit" value="Valider">
         </div>
     </form>
 </div>
-
 <div class="col-md-12">
     <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseCommentSection" role="button" aria-expanded="true" aria-controls="collapseCommentSection">
@@ -54,6 +72,7 @@ include_once('../views/header.php');
         ?>
     </div>
 </div>
+<?php } ?>
 
 <?php
 include_once '../views/footer.php';

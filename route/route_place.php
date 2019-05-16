@@ -6,6 +6,22 @@ header('Access-Control-Allow-Origin: *');
 
 $c_place = new C_Place();
 
-if (isset($_POST["action"]) && $_POST["action"] == "addPlaces") {
-    echo $c_place->addPlaces($_POST);
+if (isset($_GET["action"]) && $_GET["action"] == "addPlaces") {
+    echo $c_place->queryOverPass($_POST);
 }
+
+/*
+ * Fetch all places that are in the city $_POST["city"]
+ * And return a list of places
+ */
+if (isset($_GET["action"]) && $_GET["action"] == "getPlacesFromCity") {
+    if (isset($_POST["city"])) {
+        $places = $c_place->getPlacesFromCity($_POST["city"]);
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($places)) {
+            $rows[] = $row;
+        }
+        echo json_encode($rows);
+    }
+}
+

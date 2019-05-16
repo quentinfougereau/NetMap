@@ -13,16 +13,13 @@ if (!isset($_SESSION["login_user"])) {
 switch ($_GET["action"]) {
 
     case "addComment":
-        $res = $c_event->addComment($_POST);
-        if ($res) {
-            echo "Commentaire enregistré, en attente de validation...";
-        } else {
-            echo "Problème lors de l'enregistrement du commentaire";
+        $response = $c_event->addComment($_POST);
+        if ($response["success"]) {
+            header('Location: ../route/route_event.php?get_event=1&id_event=' . $response["id_event"]);
         }
         break;
 
     default:
-        echo "defaut";
         break;
 
 }

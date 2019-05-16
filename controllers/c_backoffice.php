@@ -16,6 +16,18 @@ class C_backoffice extends Controller {
 		return $data;
 	}
 	
+	public function setUserWarning($user, $action)
+	{
+		$data = $this->model->setUserWarning($user, $action);
+		return $data;
+	}
+	
+	public function manageComment($comment)
+	{
+		$data = $this->model->manageComment($comment);
+		return $data;
+	}
+	
 	public function connectBDD(){
 		$con = $this->model->bddConnect();
 		return $con;

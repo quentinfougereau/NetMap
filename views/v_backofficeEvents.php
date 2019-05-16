@@ -7,7 +7,7 @@ include('../views/v_backoffice.php');
 	<h2 style='color:grey'>Events list</h2>
 	<form action="../controllers/routes.php?action=manageUser" method="POST">
 	<button type="submit" class="btn btn-primary">Submit</button>
-	<table class="table">
+	<table class="table table-striped">
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">#</th>
@@ -18,12 +18,12 @@ include('../views/v_backoffice.php');
 		</thead>
 		<tbody>
 			<?php
-				$query = "SELECT * FROM Event ORDER BY idEvent DESC";
+				$query = "SELECT * FROM event ORDER BY idEvent DESC";
 				$result = mysqli_query($con, $query);
 				$i=1;
 
 				while($resrow = mysqli_fetch_assoc($result)) {
-					$queryLoc = 'SELECT Place.libelle FROM Event, Place WHERE Place.idPlace = '.$resrow['idPlace'].' LIMIT 1';
+					$queryLoc = 'SELECT place.libelle FROM event, place WHERE place.idPlace = '.$resrow['idPlace'].' LIMIT 1';
 					$resultLoc = mysqli_query($con, $queryLoc);
 					echo "
 					<tr>

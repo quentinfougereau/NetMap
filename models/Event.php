@@ -26,7 +26,7 @@ class Event {
 
     public function getEventsNotJoined($user_login) {
         $query = "SELECT DISTINCT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city, Location.longitude, Location.latitude 
-                FROM Event, Place, Address, Location, Participer
+                FROM Event, Place, Address, Location
                 WHERE Place.idLocation = Location.idLocation 
                 AND Place.addressPlace = Address.idAddress 
                 AND Event.idPlace = Place.idPlace
@@ -48,71 +48,34 @@ class Event {
         if (isset($event["event_date"])) {
             $event_date = $event["event_date"];
         }
-        $place_name = NULL;
-        if (isset($event["place_name"])) {
-            $place_name = $event["place_name"];
+        $event_start_time = NULL;
+        if (isset($event["event_start_time"])) {
+            $event_start_time = $event["event_start_time"];
         }
-        $street = NULL;
-        if (isset($event["street"])) {
-            $street = $event["street"];
+        $event_end_time = NULL;
+        if (isset($event["event_end_time"])) {
+            $event_end_time = $event["event_end_time"];
         }
-        $postcode = NULL;
-        if (isset($event["postcode"])) {
-            $postcode = $event["postcode"];
-        }
-        $city = NULL;
-        if (isset($event["city"])) {
-            $city = $event["city"];
-        }
-        $idNode = NULL;
-        if (isset($event["idNode"])) {
-            $idNode = $event["idNode"];
-        }
-        $longitude = NULL;
-        if (isset($event["longitude"])) {
-            $longitude = $event["longitude"];
-        }
-        $latitude = NULL;
-        if (isset($event["latitude"])) {
-            $latitude = $event["latitude"];
+        $place_id = NULL;
+        if (isset($event["place"])) {
+            $place_id = $event["place"];
         }
 
-        $location_id = null;
-        $query = "INSERT INTO Location (idNode, longitude, latitude) VALUES (?, ?)";
+        $query = "INSERT INTO Event (libelle, dateEvent, startTime, endTime, idPlace) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->dbConnection, $query);
-        mysqli_stmt_bind_param($stmt, 'sdd',$idNode,$longitude, $latitude);
-        mysqli_stmt_execute($stmt);
-        $location_id = mysqli_insert_id($this->dbConnection);
+        mysqli_stmt_bind_param($stmt, 'ssssi',$event_name, $event_date, $event_start_time, $event_end_time, $place_id);
+        $res = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-
-        $query = "INSERT INTO Address (ville, rue, CP) VALUES (?, ?, ?)";
-        $stmt = mysqli_prepare($this->dbConnection, $query);
-        mysqli_stmt_bind_param($stmt, 'ssi',$city, $street, $postcode);
-        mysqli_stmt_execute($stmt);
-        $address_id = mysqli_insert_id($this->dbConnection);
-        mysqli_stmt_close($stmt);
-
-        $query = "INSERT INTO Place (libelle, idLocation, addressPlace) VALUES (?, ?, ?)";
-        $stmt = mysqli_prepare($this->dbConnection, $query);
-        mysqli_stmt_bind_param($stmt, 'sii',$place_name, $location_id, $address_id);
-        mysqli_stmt_execute($stmt);
-        $place_id = mysqli_insert_id($this->dbConnection);
-        mysqli_stmt_close($stmt);
-
-        $query = "INSERT INTO Event (libelle, dateEvent, idPlace) VALUES (?, ?, ?)";
-        $stmt = mysqli_prepare($this->dbConnection, $query);
-        mysqli_stmt_bind_param($stmt, 'ssi',$event_name, $event_date, $place_id);
-        mysqli_stmt_execute($stmt);
-        $place_id = mysqli_insert_id($this->dbConnection);
-        mysqli_stmt_close($stmt);
+        return $res;
     }
 
     public function joinEvent($event_id, $user_login) {
         $query = "INSERT INTO Participer (login, idEvent) VALUES (?, ?)";
         $stmt = mysqli_prepare($this->dbConnection, $query);
         mysqli_stmt_bind_param($stmt, 'si',$user_login, $event_id);
-        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        return $res;
     }
 
     public function getUserEvents($user_login) {
@@ -143,6 +106,29 @@ class Event {
         $event = mysqli_fetch_assoc($result);
         mysqli_stmt_close($stmt);
         return $event;
+    }
+
+    public function getCities() {
+        $query = "SELECT DISTINCT ville FROM Address ORDER BY ville ASC";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_execute($stmt);
+        $cities =  mysqli_stmt_get_result($stmt);
+        mysqli_stmt_close($stmt);
+        return $cities;
+    }
+
+    public function userHasJoined($user_login, $event_id) {
+        $query = "SELECT * FROM Participer WHERE login = ? AND idEvent = ?";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 'si',$user_login,$event_id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $hasJoined = false;
+        if ($result->num_rows == 1) {
+            $hasJoined = true;
+        }
+        mysqli_stmt_close($stmt);
+        return $hasJoined;
     }
 
 

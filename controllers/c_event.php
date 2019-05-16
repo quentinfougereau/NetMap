@@ -14,8 +14,16 @@ class C_Event {
     }
 
     public function addEvent($event) {
-        $event = $this->getCoordinates($event);
-        $this->event->addEvent($event);
+        //$event = $this->getCoordinates($event);
+        $res = $this->event->addEvent($event);
+        if ($res) {
+            $response["success"] = 1;
+            $response["message"] = "Votre événement a bien été enregistré !";
+        } else {
+            $response["success"] = 0;
+            $response["message"] = "Erreur lors de l'ajout de l'événement";
+        }
+        return $response;
     }
 
     public function getCoordinates($event) {
@@ -58,7 +66,15 @@ class C_Event {
     }
 
     public function joinEvent($event_id) {
-        $this->event->joinEvent($event_id, $_SESSION["login_user"]);
+        $res = $this->event->joinEvent($event_id, $_SESSION["login_user"]);
+        if ($res) {
+            $response["success"] = 1;
+            $response["message"] = "Votre événement a bien été enregistré !";
+        } else {
+            $response["success"] = 0;
+            $response["message"] = "Erreur lors de l'ajout de l'événement";
+        }
+        return $response;
     }
 
     public function getUserEvents() {
@@ -71,6 +87,14 @@ class C_Event {
 
     public function getEvent($event_id) {
         return $this->event->getEvent($event_id);
+    }
+
+    public function getCities() {
+        return $this->event->getCities();
+    }
+
+    public function userHasJoined($event_id) {
+        return $this->event->userHasJoined($_SESSION["login_user"], $event_id);
     }
 
 }

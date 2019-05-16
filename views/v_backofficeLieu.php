@@ -7,7 +7,7 @@ include('../views/v_backoffice.php');
 	<h2 style='color:grey'>Places list</h2>
 	<form action="../controllers/routes.php?action=manageUser" method="POST">
 	<button type="submit" class="btn btn-primary">Submit</button>
-	<table class="table">
+	<table class="table table-striped">
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">#</th>
@@ -20,12 +20,12 @@ include('../views/v_backoffice.php');
 		</thead>
 		<tbody>
 			<?php
-				$query = "SELECT * FROM Place ORDER BY idPlace DESC";
+				$query = "SELECT * FROM place ORDER BY idPlace DESC";
 				$result = mysqli_query($con, $query);
 				$i=1;
 
 				while($resrow = mysqli_fetch_assoc($result)) {
-					$queryLoc = 'SELECT Location.longitude, Location.latitude FROM Location, Place WHERE Location.idLocation = '.$resrow['idLocation'].' LIMIT 1';
+					$queryLoc = 'SELECT location.longitude, location.latitude FROM location, place WHERE location.idLocation = '.$resrow['idLocation'].' LIMIT 1';
 					$resultLoc = mysqli_query($con, $queryLoc);
 					echo "
 					<tr>

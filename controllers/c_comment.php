@@ -37,7 +37,16 @@ class C_Comment {
         $comment->setUserLogin($userLogin);
         $comment->setIdEvent($idEvent);
 
-        return $this->m_comment->add($comment);
+        $res = $this->m_comment->add($comment);
+        if ($res) {
+            $response["success"] = 1;
+            $response["message"] = "Commentaire enregistré, en attente de validation...";
+            $response["id_event"] = $comment->getIdEvent();
+        } else {
+            $response["success"] = 0;
+            $response["message"] = "Problème lors de l'enregistrement du commentaire";
+        }
+        return $response;
     }
 
     public function getAllCommentsOfEvent($event_id) {

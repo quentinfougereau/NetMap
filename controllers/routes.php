@@ -28,10 +28,27 @@ switch($action)
 		header('Location: ../views/v_backofficeUtil.php');
 		break;
 		
+	case 'manageComment':
+		$userAction = '';
+		if(!empty($_POST['comment_list'])){
+			foreach($_POST['comment_list'] as $comment) {
+				$c_backoffice->manageComment($comment);
+			}
+		}
+		header('Location: ../views/v_backofficeComment.php');
+		break;
+		
 	case 'deleteUserRights':
 		$user = $_REQUEST['user'];
 		$userAction = 'util';
 		$c_backoffice->manageUser($user, $userAction);
+		header('Location: ../views/v_backofficeUtil.php');
+		break;
+		
+	case 'issueWarning':
+		$user = $_REQUEST['user'];
+		$warningAction = $_REQUEST['waction'];
+		$c_backoffice->setUserWarning($user, $warningAction);
 		header('Location: ../views/v_backofficeUtil.php');
 		break;
 		

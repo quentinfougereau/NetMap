@@ -37,7 +37,7 @@ class Place {
         return $result;
     }
 
-    public function addPlaces($place, $last_location_id) {
+    public function addPlace($place, $location_id, $address_id) {
             $name = NULL;
             if (isset($place["name"])) {
                 $name = $place["name"];
@@ -55,38 +55,58 @@ class Place {
                 $website = $place["website"];
             }
 
-            $query = "INSERT INTO Place (libelle, rating, description, website, idLocation) VALUES (?, ?, ?, ?, ?)";
+            $query = "INSERT INTO Place (libelle, rating, description, website, idLocation, addressPlace) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($this->dbConnection, $query);
-            mysqli_stmt_bind_param($stmt, 'sissi', $name, $rating, $description, $website, $last_location_id);
+            mysqli_stmt_bind_param($stmt, 'sissii', $name, $rating, $description, $website, $location_id, $address_id);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
     }
 
-    public function addLocations($nodes) {
-        foreach ($nodes as $node) {
-            $idNode = NULL;
-            if (isset($node["id"])) {
-                $idNode = $node["id"];
-            }
-            $latitude = NULL;
-            if (isset($node["lat"])) {
-                $latitude = $node["lat"];
-            }
-            $longitude = NULL;
-            if (isset($node["lon"])) {
-                $longitude = $node["lon"];
-            }
-
-            $query = "INSERT INTO Location (idNode, longitude, latitude) VALUES (?, ?, ?)";
-            $stmt = mysqli_prepare($this->dbConnection, $query);
-            mysqli_stmt_bind_param($stmt, 'sdd', $idNode, $longitude, $latitude);
-            mysqli_stmt_execute($stmt);
-            $last_location_id = mysqli_insert_id($this->dbConnection);
-            mysqli_stmt_close($stmt);
-            if ($last_location_id) {
-                $this->addPlaces($node["tags"], $last_location_id);
-            }
+    public function addLocation($node) {
+        $idNode = NULL;
+        if (isset($node["id"])) {
+            $idNode = $node["id"];
         }
+        $latitude = NULL;
+        if (isset($node["lat"])) {
+            $latitude = $node["lat"];
+        }
+        $longitude = NULL;
+        if (isset($node["lon"])) {
+            $longitude = $node["lon"];
+        }
+
+        $query = "INSERT INTO Location (idNode, longitude, latitude) VALUES (?, ?, ?)";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 'sdd', $idNode, $longitude, $latitude);
+        mysqli_stmt_execute($stmt);
+        $last_location_id = mysqli_insert_id($this->dbConnection);
+        mysqli_stmt_close($stmt);
+        return $last_location_id;
+    }
+
+    public function addAddress($address) {
+        $query = "INSERT INTO Address (rue, ville, CP) VALUES (?, ?, ?)";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 'ssd', $address["street"], $address["city"], $address['postcode']);
+        mysqli_stmt_execute($stmt);
+        $last_address_id = mysqli_insert_id($this->dbConnection);
+        mysqli_stmt_close($stmt);
+        return $last_address_id;
+    }
+
+    public function getPlacesFromCity($city) {
+        $query = "SELECT Place.idPlace AS id, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode
+                  FROM Place, Address
+                  WHERE Place.addressPlace = Address.idAddress
+                  AND Address.ville = ?
+                  ORDER BY Place.libelle ASC";
+        $stmt = mysqli_prepare($this->dbConnection, $query);
+        mysqli_stmt_bind_param($stmt, 's', $city);
+        mysqli_stmt_execute($stmt);
+        $places =  mysqli_stmt_get_result($stmt);
+        mysqli_stmt_close($stmt);
+        return $places;
     }
 
 }

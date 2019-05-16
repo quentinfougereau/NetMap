@@ -8,6 +8,7 @@ class C_Place {
 
     public function __construct()
     {
+        session_start();
         $this->place = new Place();
         $this->place->init();
     }
@@ -21,7 +22,33 @@ class C_Place {
         $data = $this->place->getPlaces();
     }
 
-    public function addPlaces($post) {
+    public function addPlaces($nodes) {
+
+        foreach ($nodes as $node) {
+
+            $idNode = NULL;
+            if (isset($node["id"])) {
+                $idNode = $node["id"];
+            }
+            $latitude = NULL;
+            if (isset($node["lat"])) {
+                $latitude = $node["lat"];
+            }
+            $longitude = NULL;
+            if (isset($node["lon"])) {
+                $longitude = $node["lon"];
+            }
+
+            $id_location = $this->place->addLocation($node);
+            $address = $this->getAddressFromIdNode($idNode);
+            $id_address = $this->place->addAddress($address);
+            $this->place->addPlace($node["tags"], $id_location, $id_address);
+
+        }
+
+    }
+
+    public function queryOverPass($post) {
         $interests = $post["data"];
         $type = "";
         $latitude = 43.3000859;
@@ -73,11 +100,47 @@ class C_Place {
 
         //Ajoute les nouveaux Locations & Places dans la BDD
         if (isset($result_array["elements"])) {
-            $this->place->addLocations($result_array["elements"]);
+            $this->addPlaces($result_array["elements"]);
         }
 
         echo json_encode($result_array["elements"]);
+    }
 
+    public function getAddressFromIdNode($idNode) {
+        $nominatim_query = "https://nominatim.openstreetmap.org/lookup?format=json&osm_ids=N" . urlencode($idNode);
+        //Context to fake user agents (fake browser)
+        $context = stream_context_create(
+            array (
+                "http" => array(
+                    "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+                )
+            )
+        );
+        $result = file_get_contents($nominatim_query, false, $context);
+        $result_array = json_decode($result, true);
+        if (count($result_array) > 0) {
+            $address = array();
+            $address["street"] = "";
+            if (isset($result_array[0]["address"]["house_number"])) {
+                $address["street"] = $result_array[0]["address"]["house_number"] . " ";
+            }
+            if (isset($result_array[0]["address"]["road"])) {
+                $address["street"] .= $result_array[0]["address"]["road"];
+            } else if (isset($result_array[0]["address"]["pedestrian"])) {
+                $address["street"] .= $result_array[0]["address"]["pedestrian"];
+            }
+            if (isset($result_array[0]["address"]["city"])) {
+                $address["city"] = $result_array[0]["address"]["city"];
+            }
+            if (isset($result_array[0]["address"]["postcode"])) {
+                $address["postcode"] = $result_array[0]["address"]["postcode"];
+            }
+        }
+        return $address;
+    }
+
+    public function getPlacesFromCity($city) {
+        return $this->place->getPlacesFromCity($city);
     }
 
 }
