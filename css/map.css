@@ -1,0 +1,29 @@
+#location-pin{
+    border:none;
+    background: url('../img/location-pin.png') no-repeat top;
+    background-size: cover;
+    margin-right:10px;
+    width:50px;
+    height:50px;
+}
+
+#location-pin:hover{
+    -webkit-filter: drop-shadow(1px 1px 0 black)
+    drop-shadow(-1px -1px 0 black);
+    filter: drop-shadow(1px 1px 0 black)
+    drop-shadow(-1px -1px 0 black);
+}
+
+#loading {
+    position: absolute;
+    left: 49%;
+    top: 50%;
+    z-index: 9999;
+}
+#loading img{
+    position: relative;
+    left: 49%;
+    top: 50%;
+    height:auto;
+    width:25px;
+}

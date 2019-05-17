@@ -7,7 +7,7 @@ include('../views/v_backoffice.php');
 	<h2 style='color:grey'>Settings</h2>
 	<p>A faire</p>
 </div>
-
+</div>
 <?php
 include('../views/footer.php'); 
 ?>

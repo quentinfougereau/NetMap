@@ -2,6 +2,10 @@
 
 require("../utils/DatabaseManager.php");
 
+/**
+* Gathers and treats data from database
+* And returns it to the controller
+*/
 class Model {
 
     private $dbConnection;
@@ -18,11 +22,16 @@ class Model {
         $this->dbConnection = DatabaseManager::getDatabaseConnection();
 	}
 	
+	/**
+	* Check user login
+	*/
 	public function getlogin()
 	{
 		$this->bddConnect();
+		//Check both fields are not empty
 		if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
-
+			
+			//Escape strings to avoid sql injection
             $myusername = mysqli_real_escape_string($this->dbConnection, $_REQUEST['username']);
             $mypassword = mysqli_real_escape_string($this->dbConnection, $_REQUEST['password']);
 
@@ -41,10 +50,15 @@ class Model {
 		}
 	}
 	
+	/**
+	* Registers new user
+	* Returns sql result string (errors)
+	*/
 	public function register(){
 		$this->bddConnect();
 		if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			
+			//escape strings
 			$esusername = mysqli_real_escape_string($this->dbConnection, $_REQUEST['username']);
 			$espassword = mysqli_real_escape_string($this->dbConnection, $_REQUEST['password']);
 			$esverifypassword = mysqli_real_escape_string($this->dbConnection, $_REQUEST['verifypassword']);
@@ -53,19 +67,20 @@ class Model {
 			$esville = mysqli_real_escape_string($this->dbConnection, $_REQUEST['city']);
 			$escp = mysqli_real_escape_string($this->dbConnection, $_REQUEST['CP']);
 			
+			//check password and password verification fields
 			if($espassword == $esverifypassword){
 				
 				$respseudo = mysqli_query($this->dbConnection, "SELECT pseudo FROM User WHERE pseudo='$espseudo' LIMIT 1");
 				
+				//Check if pseudo already exists
 				if ($respseudo && mysqli_fetch_row($respseudo)) {
 					$reslt = 'pseudocheck';
 				} else {
+					//Password hash method
 					$pswHash = password_hash($espassword, PASSWORD_BCRYPT);
 		
 					$sql = "INSERT INTO User (login, password, pseudo)
 					VALUES ('$esusername', '$pswHash', '$espseudo')";
-
-
 
 					if (mysqli_query($this->dbConnection, $sql) === TRUE) {
 						$reslt = 'success';
@@ -81,6 +96,49 @@ class Model {
 		}
 	}
 	
+	/**
+	* Updates user infos from his email
+	*/
+	public function registerUpdate(){
+		$this->bddConnect();
+		if ($_SERVER["REQUEST_METHOD"] == "POST"){
+			
+			//escape strings
+			$esusername = mysqli_real_escape_string($this->dbConnection, $_REQUEST['username']);
+			$espassword = mysqli_real_escape_string($this->dbConnection, $_REQUEST['password']);
+			$espseudo = mysqli_real_escape_string($this->dbConnection, $_REQUEST['pseudo']);
+			$esAdresse = mysqli_real_escape_string($this->dbConnection, $_REQUEST['adresse']);
+			$esville = mysqli_real_escape_string($this->dbConnection, $_REQUEST['city']);
+			$escp = mysqli_real_escape_string($this->dbConnection, $_REQUEST['CP']);
+			
+			if($espassword){
+				$query = "SELECT login, password FROM User WHERE login = '$esusername'";
+				$sql = mysqli_query($this->dbConnection, $query);
+
+				if($sql->num_rows > 0) {
+					$data = $sql->fetch_array();
+					//Verify if hash = password
+					if(password_verify($espassword, $data['password'])){
+						$sql = "UPDATE User SET pseudo = '$espseudo' WHERE login='$esusername'";
+							if (mysqli_query($this->dbConnection, $sql) === TRUE) {
+							$reslt = 'success';
+						} else {
+							$reslt = "Error: " . $sql . "<br>" . mysqli_error($this->dbConnection);
+						}
+					}
+				}
+			}else{
+				$reslt = "Entrez un mdp";
+			}
+
+			mysqli_close($this->dbConnection);
+			return $reslt;
+		}
+	}
+	
+	/**
+	* Returns an array of user data (login, pseudo, isAdmin)
+	*/
 	public function getUserData($adresse){
 		$this->bddConnect();
 
@@ -97,6 +155,9 @@ class Model {
 		return $infoUser;
 	}
 	
+	/**
+	* Updates user rights
+	*/
 	public function manageUser($id, $oper){
 		$this->bddConnect();
 		if($oper == 'admin'){
@@ -120,6 +181,9 @@ class Model {
 		return $reslt;
 	}
 	
+	/**
+	* Verifies comment
+	*/
 	public function manageComment($comment){
 		$this->bddConnect();
 
@@ -133,6 +197,9 @@ class Model {
 		return $reslt;
 	}
 	
+	/**
+	* Adds or removes user warnings
+	*/
 	public function setUserWarning($user, $action){
 		$this->bddConnect();
 		$sql = '';

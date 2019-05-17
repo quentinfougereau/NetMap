@@ -33,7 +33,7 @@ include('../views/v_backoffice.php');
 						<td scope='row'>".$resrow['libelle']."</td>
 						<td scope='row'>".$resrow['rating']."</td>
 						<td scope='row'>".$resrow['description']."</td>";
-					while($locrow = mysqli_fetch_assoc($resultLoc)) {
+					while($locrow = mysqli_fetch_assoc($resultLoc)){
 						echo "<td scope='row'>".$locrow['longitude']."</td>";
 						echo "<td scope='row'>".$locrow['latitude']."</td>";
 					}
@@ -46,7 +46,7 @@ include('../views/v_backoffice.php');
 	</table>
 	</form>
 </div>
-
+</div>
 <?php
 include('../views/footer.php'); 
 ?>

@@ -1,3 +1,24 @@
+#divheader{
+	margin-left:0px;
+	margin-right:0px;
+}
+
+#bo_menu{
+	background-color:#151a21;
+	height:100% !important;
+}
+
+.footer{
+	margin-top: auto !important;
+	background-color: #151a21e6;
+	padding-top:10px;
+	color:white;
+}
+
+.footer-copyright{
+	background-color: #151a21;
+}
+
 .header {
   background-color:#ededed;
   height:50px;
@@ -25,4 +46,18 @@
 .listla:hover:not(.active) {
   background-color: #333333;
   color: white;
+}
+
+.headlink{
+  color: #ff8013;
+}
+
+#footerlink{
+  color: #ff8013;
+}
+
+.btn-netmap {
+    color: #FFF;
+    background-color: #ff8013;
+    border-color: #ff8013;
 }

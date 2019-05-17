@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>NETMAP</title>
+    <!-- Include du CSS de la page -->
+    <link rel="stylesheet" href="mapage.css"/>
+    <!-- Include de la bibliothèque JSON -->
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <!-- Include du CSS leaftlet-->
+    <link rel="stylesheet" href="leaflet.css"/>
+    <!-- Include de l'API leaflet -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+   <!-- Include de l'API PHOTON-->
+   <script src="autocomplete/typeahead.bundle.js"></script>
+    <script src="autocomplete/typeahead-address-photon.js"></script>
+    <!-- Include de EasyButton -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+    <!-- Include de FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Script de récupération des évènements -->
+    <script src="eventTest.js"></script>
+  </head>
+  <body>
+      <!-- Div concernant la localisation de l'utilisateur -->
+      <div class="localisationField">
+        <!-- Bouton de géolocalisation -->
+        <div id=locationButton>
+            <input type="button" id="location-pin" onClick="askForGeolocalisation()"></span>
+            <span id="location-pinSpan">Plus rapide que de rentrer ton adresse</span>
+        </div>
+        <!-- Formulaire d'adresse et sauvegarde du champs-->
+          <div id=inputBox>
+            <input type="text" name="addrArea"  autocomplete="off" id="addrArea" placeholder="Je rentre mon addresse ici."></input>
+            <input type="button" id="addrConfirmButton" value="Localisez-moi" onClick="locateByAddress()"></input>
+          </div>
+        <!-- Affichage d'éventuels messages d'erreurs lors de la géolocalisation -->
+        <div id="infoposition" class="error"></div>
+      </div>
+      <div class="searchResultContainer">
+        <div class="searchResult"></div>
+        <div class="searchResult"></div>
+        <div class="searchResult"></div>
+        <div class="searchResult"></div>
+        <div class="searchResult"></div>
+      </div>
+      <!-- Checkbox des points d'intérêts disponibles à la recherche -->
+      <div class=checkbox>
+        <div>
+          <input type="checkbox" id="restaurant" name="restaurant" onClick="caseIsChecked(this)" unchecked>
+          <label for="restaurant">Restaurant</label>
+      </div>
+        <div>
+          <input type="checkbox" id="museum" name="museum" onClick="caseIsChecked(this)" unchecked>
+          <label for="musées">Musées</label>
+        </div>
+        <div id="rangeRadius">
+          <input class="range" type="range" value="1000" min="500" max="2000" step="100">
+          <output></output>
+        </div>
+        <div id="buttonSearchPOI">
+          <input type="button" value="Chercher" onClick="sendCheckedCases()"/>
+        </div>
+        <div id="interestSelected"></div>
+      </div>
+    <!--Fin de la section du formulaire !-->
+    <!-- Affichage de la carte -->
+    <div id="mapid"></div>
+    <div id=loading></div>
+    <!-- Insertion des scripts -->
+    <script src="geolocation-button.js"></script>
+    <script src="selflocalisation-button.js"></script>
+    <script src="center-button.js"></script>
+    <script src="form-confirm-button.js"></script>
+    <script src="checkbox.js"></script>
+    <script src="map.js"></script>
+    <script src="control.js"></script>
+    <script src="map-custom-icons.js"></script>
+    <script src="loading.js"></script>
+  </body>
+</html>

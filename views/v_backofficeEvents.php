@@ -42,7 +42,7 @@ include('../views/v_backoffice.php');
 	</table>
 	</form>
 </div>
-
+</div>
 <?php
 include('../views/footer.php'); 
 ?>

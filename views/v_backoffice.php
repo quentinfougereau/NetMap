@@ -1,15 +1,22 @@
 <?php
-session_start();
+if (!session_id()) session_start();
+//Check if user is Admin
+if (!$_SESSION['admin']){ 
+    header("Location:../views/v_accueil.php");
+    die();
+}
 include("../controllers/c_login.php");
 $controller = new C_login();
 $controller->connectBDD();
 $con = $controller->getDbConnection();
 $adresse = $_SESSION['login_user'];
+
 $infoUser = $controller->getUserData($adresse);
 include('../views/header.php'); 
 ?>
-	<div style="background-color:#151a21" class="row">
-		<div class="col-1">
+<div class="container-fluid">
+	<div class="row">
+		<div id="bo_menu" class="col-lg-1 col-md-12">
 			<div style="padding-top:10px;padding-left:10px;" class="pcoded-navigation-label"><p style="color:#fdd4b1;font-weight:bold">APPLICATION</p></div>
 			<ul class="listul">
 				<li class="listil"><a class="listla" href="../views/v_accueil.php">Homepage</a></li>
@@ -24,3 +31,4 @@ include('../views/header.php');
 				<li class="listil"><a class="listla" href="../views/v_backofficeComment.php">Comments</a></li>
 			</ul>
 		</div>
+		

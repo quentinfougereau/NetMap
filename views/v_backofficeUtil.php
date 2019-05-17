@@ -2,7 +2,7 @@
 include('../views/v_backoffice.php'); 
 ?>
 
-<div style="background-color:white" class="col-11">
+<div style="background-color:white" class="col-lg-11 col-md-12">
 	<h1>BACKOFFICE ADMIN</h1>
 	<h2 style='color:grey'>Users list</h2>
 	<form action="../controllers/routes.php?action=manageUser" method="POST">
@@ -33,18 +33,18 @@ include('../views/v_backoffice.php');
 						$tags = 'table-primary';
 						$checked_admin = 'checked';
 						$checked_modo = '';
-						$rightsRowLabel = 'Administrateur';
+						$rightsRowLabel = 'Administrator';
 					}else{
 						if($resrow['isAdmin'] == '1'){
 							$tags = 'table-success';
 							$checked_admin = '';
 							$checked_modo = 'checked';
-							$rightsRowLabel = 'Moderateur';
+							$rightsRowLabel = 'Moderator';
 						}else{
 							$tags = '';
 							$checked_admin = '';
 							$checked_modo = '';
-							$rightsRowLabel = 'Utilisateur';
+							$rightsRowLabel = 'User';
 						}
 					}
 						
@@ -66,10 +66,10 @@ include('../views/v_backoffice.php');
 							</th>
 							<th scope='row'>
 								<a href='../controllers/routes.php?action=issueWarning&waction=add&user=" . $resrow['login'] . "'>
-										<i class='fa fa-exclamation-triangle'></i>
+										<i class='fas fa-exclamation-triangle'></i>
 								</a>
 								<a href='../controllers/routes.php?action=issueWarning&waction=sub&user=" . $resrow['login'] . "'>
-										<i class='fa fa-undo-alt'></i>
+										<i class='fas fa-undo-alt'></i>
 								</a>
 							</th>
 						</tr>";
@@ -92,10 +92,10 @@ include('../views/v_backoffice.php');
 							</td>
 							<td scope='row'>
 								<a href='../controllers/routes.php?action=issueWarning&waction=add&user=" . $resrow['login'] . "'>
-										<i class='fa fa-exclamation-triangle'></i>
+										<i class='fas fa-exclamation-triangle'></i>
 								</a>
 								<a href='../controllers/routes.php?action=issueWarning&waction=sub&user=" . $resrow['login'] . "'>
-										<i class='fa fa-undo-alt'></i>
+										<i class='fas fa-undo-alt'></i>
 								</a>
 							</td>
 						</tr>";	
@@ -108,7 +108,7 @@ include('../views/v_backoffice.php');
 	<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
-
+</div>
 <?php
 include('../views/footer.php'); 
 ?>

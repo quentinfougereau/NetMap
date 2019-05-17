@@ -53,7 +53,12 @@ switch($action)
 		break;
 		
 	case 'login':
-		$controller->login();
+		if(isset($_POST['conditions'])) {
+			$controller->login();
+		}else{
+			echo "<p style=color:red>Veuillez accepter les conditions d'utilisation</p>";
+			include('../views/login.php');
+		}
 		break;
 		
 	case 'register':
@@ -72,6 +77,27 @@ switch($action)
 				}else{
 					echo '<p style=color:red>Registration Failed</p>';
 					include('../views/register.php');
+				}
+			}
+		}
+		break;
+		
+	case 'registerUpdate':
+		$reslt = $controller->registerUpdate();
+		if($reslt == 'success'){
+			echo '<p style=color:green>Successfully Registered</p>';
+			include('../views/v_profile.php');	
+		}else{
+			if($reslt == 'passwordcheck'){
+				echo '<p style=color:red>Please check your passwords</p>';
+				include('../views/v_profile.php');
+			}else{
+				if($reslt == 'pseudocheck'){
+					echo '<p style=color:red>Pseudo already used</p>';
+					include('../views/v_profile.php');
+				}else{
+					echo '<p style=color:red>Registration Failed</p>';
+					include('../views/v_profile.php');
 				}
 			}
 		}
