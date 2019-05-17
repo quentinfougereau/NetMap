@@ -21,12 +21,16 @@ include('../views/header.php');
             <?php
                 echo '<h2>Bienvenue '. $infoUser['pseudo'] .'</h2>';
             ?>
-            <a href="../views/login.php">Se connecter</a>
+            <a class="link-netmap" href="../views/login.php">Se connecter</a>
         </div>
 
         <div class="col-md-3">
-            <a href="../controllers/c_logout.php">Se déconnecter</a>
+            <a class="link-netmap" href="../controllers/c_logout.php">Se déconnecter</a>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
     </div>
 
     <div class="row">

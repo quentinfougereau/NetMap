@@ -6,7 +6,7 @@ include_once('../views/header.php');
         <?php
         foreach ($events as $event) {
             $html = "<li>";
-            $html .= "<a href='../route/route_event.php?get_event=1&id_event=" . $event["idEvent"] . "'>Evenement n°" . $event["idEvent"] . "</a>";
+            $html .= "<a class='link-netmap' href='../route/route_event.php?get_event=1&id_event=" . $event["idEvent"] . "'>Evenement n°" . $event["idEvent"] . "</a>";
             $html .= " : " . $event["libelle"] . " à " . $event["street"] . ", " . $event["postcode"];
             $html .= "</li>";
             echo $html;
@@ -16,7 +16,7 @@ include_once('../views/header.php');
 </div>
 
 <div class="col-md-12">
-    <a href="../views/v_accueil.php">Retour accueil</a>
+    <a class="link-netmap" href="../views/v_accueil.php">Retour accueil</a>
 </div>
 
 <?php
