@@ -2,7 +2,7 @@
 include('../views/v_backoffice.php'); 
 ?>
 
-<div style="background-color:white" class="col-lg-11 col-md-12">
+<div style="background-color:white" class="col-lg-10 col-md-12">
 	<h1>BACKOFFICE ADMIN</h1>
 	<h2 style='color:grey'>Users list</h2>
 	<form action="../controllers/routes.php?action=manageUser" method="POST">
@@ -105,9 +105,8 @@ include('../views/v_backoffice.php');
 			?>
 		</tbody>
 	</table>
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" class="btn btn-netmap">Submit</button>
 	</form>
-</div>
 </div>
 <?php
 include('../views/footer.php'); 

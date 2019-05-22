@@ -1,8 +1,8 @@
 <?php
+header('Access-Control-Allow-Origin: https://netmap.servebeer.com');
 
 include '../controllers/c_place.php';
 
-header('Access-Control-Allow-Origin: *');
 
 $c_place = new C_Place();
 

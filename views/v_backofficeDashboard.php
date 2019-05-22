@@ -14,7 +14,7 @@ $userModo=mysqli_fetch_assoc($resChart2);
 $resChart3=mysqli_query($con, "SELECT count(*) as total from User WHERE isAdmin = 2");
 $userAdmin=mysqli_fetch_assoc($resChart3);
 ?>
-<div style="background-color:white" class="col-11">
+<div style="background-color:white" class="col-10">
 	<h1>BACKOFFICE ADMIN</h1>
 	<h2 style='color:grey'>Dashboard</h2>
 	<div class="row">
@@ -49,7 +49,7 @@ $userAdmin=mysqli_fetch_assoc($resChart3);
 				</div>
             </div>
         </div>
-		
+
 		<div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow py-2">
                 <div class="card-body">
@@ -65,7 +65,7 @@ $userAdmin=mysqli_fetch_assoc($resChart3);
 				</div>
             </div>
         </div>
-		
+
 		<div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow py-2">
                 <div class="card-body">
@@ -108,7 +108,6 @@ $userAdmin=mysqli_fetch_assoc($resChart3);
             </div>
         </div>
     </div>
-</div>
 </div>
 <script>
 window.onload = function () {

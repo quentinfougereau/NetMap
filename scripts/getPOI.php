@@ -1,6 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 
+/*
 $type = "";
 $lat;
 $lon;
@@ -47,3 +48,12 @@ $result = file_get_contents("http://overpass-api.de/api/interpreter?data=".urlen
 $result_array = json_decode($result, true);
 
 echo json_encode($result_array["elements"]);
+*/
+
+
+include_once "../controllers/c_place.php";
+
+$c_place = new C_Place();
+
+$response = $c_place->queryOverPass($_POST);
+echo json_encode($response);

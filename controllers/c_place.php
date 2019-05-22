@@ -51,18 +51,18 @@ class C_Place {
     public function queryOverPass($post) {
         $interests = $post["data"];
         $type = "";
-        $latitude = 43.3000859;
-        $longitude = 5.3844536;
+        $latitude;
+        $longitude;
 
         $radius;
         $limit = 100;
 
-        if (isset($post["userPosition"]["latitude"])) {
-            $latitude = $post["userPosition"]["latitude"];
+        if (isset($post["userPosition"]["lat"])) {
+            $latitude = $post["userPosition"]["lat"];
         }
 
-        if (isset($post["userPosition"]["latitude"])) {
-            $longitude = $post["userPosition"]["longitude"];
+        if (isset($post["userPosition"]["lon"])) {
+            $longitude = $post["userPosition"]["lon"];
         }
 
         if (isset($post["radius"])) {
@@ -83,11 +83,6 @@ class C_Place {
                     $type = '"tourism"="museum"';
                     $query .= 'node[' . $type . '](around:' . $radius . ',' . $latitude . ',' . $longitude.');';
                     break;
-
-                case "bench":
-                    $type = '"amenity"="bench"';
-                    $query .= 'node[' . $type . '](around:' . $radius . ',' . $latitude . ',' . $longitude.');';
-                    break;
             }
         }
 
@@ -99,11 +94,13 @@ class C_Place {
         $result_array = json_decode($result, true);
 
         //Ajoute les nouveaux Locations & Places dans la BDD
+
         if (isset($result_array["elements"])) {
             $this->addPlaces($result_array["elements"]);
         }
 
-        echo json_encode($result_array["elements"]);
+        return $result_array["elements"];
+
     }
 
     public function getAddressFromIdNode($idNode) {

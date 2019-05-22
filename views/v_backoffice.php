@@ -16,7 +16,7 @@ include('../views/header.php');
 ?>
 <div class="container-fluid">
 	<div class="row">
-		<div id="bo_menu" class="col-lg-1 col-md-12">
+		<div id="bo_menu" class="col-lg-2 col-md-12">
 			<div style="padding-top:10px;padding-left:10px;" class="pcoded-navigation-label"><p style="color:#fdd4b1;font-weight:bold">APPLICATION</p></div>
 			<ul class="listul">
 				<li class="listil"><a class="listla" href="../views/v_accueil.php">Homepage</a></li>

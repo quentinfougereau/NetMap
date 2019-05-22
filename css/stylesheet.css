@@ -5,7 +5,7 @@
 
 #bo_menu{
 	background-color:#151a21;
-	height:100% !important;
+	/*height:100% !important;*/
 }
 
 .footer{
@@ -13,6 +13,7 @@
 	background-color: #151a21e6;
 	padding-top:10px;
 	color:white;
+    width: 100%;
 }
 
 .footer-copyright{
@@ -57,11 +58,20 @@
 }
 
 .btn-netmap {
-    color: #FFF;
-    background-color: #ff8013;
-    border-color: #ff8013;
+    color: #FFF !important;
+    background-color: #ff8013 !important;
+    border-color: #ff8013 !important;
+}
+
+.btn-sidebar {
+    font-size: 0.7em;
+    width: 180px;
 }
 
 .link-netmap {
     color: #ff8013;
+}
+
+.display_error {
+    color: red;
 }

@@ -1,4 +1,4 @@
-</main>
+
 <footer class="footer">
 	<div class="container text-center text-md-left">
 		<div class="row">
@@ -27,6 +27,29 @@
 		<a id="footerlink" href="#">NetMap.com</a>
 	</div>
 </footer>
+</div>
+
+<script src="../assets/util.js"></script> <!-- util functions included in the CodyHouse framework -->
+<script src="../assets/menu-aim.js"></script>
+<script src="../assets/main.js"></script>
+
+<!-- SCRIPT AJOUTEE AU TEMPLATE -->
+
+<!-- PLUGGINGS -->
+
+<!-- Include de la bibliothèque JQuery -->
+<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+<!-- Include de l'API leaflet -->
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+<!-- Sidebear leaflet -->
+<script src="../assets/sidebar/L.Control.Sidebar.js"></script>
+
+<!-- Include de EasyButton -->
+<script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+
+
+
 
 </body>
 </html>

@@ -51,11 +51,12 @@ class C_Event {
      * Parcours tous les events et récupère le nom de l'event et sa localisation (longitude / latitude)
      */
     public function getEventsForMap() {
-        $events = $this->event->getEvents();
+        $events = $this->event->getEventsForMap();
         $events_coordinates = array();
         while ($row = mysqli_fetch_assoc($events)) {
-            $coordinates = array("name" => $row["libelle"],"longitude" => $row["longitude"], "latitude" => $row["latitude"],
-                            "place" => $row["place"], "street" => $row["street"], "postcode" => $row["postcode"], "city" => $row["city"]);
+            $coordinates = array("id" => $row["idEvent"], "name" => $row["libelle"],"lon" => $row["longitude"], "lat" => $row["latitude"],
+                            "place" => $row["place"], "street" => $row["street"], "postcode" => $row["postcode"], "city" => $row["city"],
+                            "date" => $row["dateEvent"], "start" => $row["startTime"], "end" => $row["endTime"]);
             array_push($events_coordinates, $coordinates);
         }
         return $events_coordinates;

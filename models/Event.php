@@ -15,11 +15,24 @@ class Event {
     }
 
     public function getEvents() {
-        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city, Location.longitude, Location.latitude 
+        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city, Location.longitude, Location.latitude,
+                Event.dateEvent, Event.startTime, Event.endTime 
                 FROM Event, Place, Address, Location
                 WHERE Place.idLocation = Location.idLocation 
                 AND Place.addressPlace = Address.idAddress 
                 AND Event.idPlace = Place.idPlace";
+        $result = mysqli_query($this->dbConnection, $query);
+        return $result;
+    }
+
+    public function getEventsForMap() {
+        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city, Location.longitude, Location.latitude,
+                Event.dateEvent, Event.startTime, Event.endTime 
+                FROM Event, Place, Address, Location
+                WHERE Place.idLocation = Location.idLocation 
+                AND Place.addressPlace = Address.idAddress 
+                AND Event.idPlace = Place.idPlace
+                AND Event.idPlace = Place.idPlace AND Event.dateEvent > NOW()";
         $result = mysqli_query($this->dbConnection, $query);
         return $result;
     }
@@ -94,7 +107,8 @@ class Event {
     }
 
     public function getEvent($event_id) {
-        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city
+        $query = "SELECT Event.idEvent, Event.libelle, Event.dateEvent, Place.libelle AS place, Address.rue AS street, Address.CP AS postcode, Address.ville AS city,
+                Event.dateEvent AS date, Event.startTime AS start, Event.endTime AS end
                 FROM Event, Place, Address
                 WHERE Event.idPlace = Place.idPlace
                 AND Place.addressPlace = Address.idAddress

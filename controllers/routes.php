@@ -56,7 +56,7 @@ switch($action)
 		if(isset($_POST['conditions'])) {
 			$controller->login();
 		}else{
-			echo "<p style=color:red>Veuillez accepter les conditions d'utilisation</p>";
+			$error_msg = "Veuillez accepter les conditions d'utilisation";
 			include('../views/login.php');
 		}
 		break;
