@@ -64,18 +64,18 @@ switch($action)
 	case 'register':
 		$reslt = $controller->register();
 		if($reslt == 'success'){
-			echo '<p style=color:green>Successfully Registered</p>';
+			$success_msg =  "Successfully Registered";
 			include('../views/login.php');	
 		}else{
 			if($reslt == 'passwordcheck'){
-				echo '<p style=color:red>Please check your passwords</p>';
+				$error_msg = "Please check your passwords";
 				include('../views/register.php');
 			}else{
 				if($reslt == 'pseudocheck'){
-					echo '<p style=color:red>Pseudo already used</p>';
+					$error_msg = "Pseudo already used";
 					include('../views/register.php');
 				}else{
-					echo '<p style=color:red>Registration Failed</p>';
+					$error_msg = "Registration Failed";
 					include('../views/register.php');
 				}
 			}

@@ -91,7 +91,16 @@ include('../views/header.php');
 
                 </form>
                 <a href="../views/login.php">J'ai déjà un compte</a>
+                <?php
+                if (isset($error_msg)) {
+                $html = '<div>';
+                    $html .= '<p class="display_error">' . $error_msg . '</p>';
+                    $html .= '</div>';
+                echo $html;
+                }
+                ?>
             </div>
+
 
         </div>
     </main>

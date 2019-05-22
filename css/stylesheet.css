@@ -75,3 +75,7 @@
 .display_error {
     color: red;
 }
+
+.display_success {
+    color: green;
+}

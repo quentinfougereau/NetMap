@@ -68,6 +68,12 @@ include('../views/header.php');
                     $html .= '</div>';
                     echo $html;
                 }
+                if (isset($success_msg)) {
+                    $html = '<div>';
+                    $html .= '<p class="display_success">' . $success_msg . '</p>';
+                    $html .= '</div>';
+                    echo $html;
+                }
                 ?>
             </div>
         </div>
